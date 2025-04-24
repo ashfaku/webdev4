@@ -11,7 +11,7 @@ const createDB = require('./database/utils/createDB');  // Import function to cr
 const seedDB = require('./database/utils/seedDB');  // Import function to seed database
 // Import database instance for database connection (including database name, username, and password)
 const db = require('./database');
-
+const Campus = require('./database//models/Campus'); 
 /* MODEL SYNCHRONIZATION & DATABASE SEEDING */
 // Set up sync and seed process
 const syncDatabase = async () => {
@@ -21,7 +21,7 @@ const syncDatabase = async () => {
     // - Create new tables (according to the models) in the Postgres database application, dropping tables first if they already existed
     await db.sync({force: true});  // Drop table if already exists (force: true)
     console.log('------Synced to db--------')
-    // Database Seeding
+    // Database entering data into tables
     await seedDB();  
     console.log('--------Successfully seeded db--------');
   } 
@@ -35,7 +35,6 @@ const syncDatabase = async () => {
 const express = require("express");
 // Create an Express application called "app"
 const app = express();
-
 /* SET UP ROUTES */
 // Import sub-routes and associated router functions for students and campuses
 const apiRouter = require('./routes/index');
@@ -81,5 +80,5 @@ bootApp();
 
 /* ACTIVATE THE SERVER PORT */
 // Set up express application to use port 5000 as the access point for the server application.
-const PORT = 5001;  // Server application access point port number
+const PORT = 3000;  // Server application access point port number
 app.listen(PORT, console.log(`Server started on ${PORT}`));

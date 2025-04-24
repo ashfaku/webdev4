@@ -15,8 +15,6 @@ import { AllCampusesView } from "../views";
 class AllCampusesContainer extends Component {
   // Get all campuses data from back-end database
   componentDidMount() {
-    console.log(123);
-    console.log(this.props);
     this.props.fetchAllCampuses();
   }
 
@@ -45,7 +43,9 @@ const mapState = (state) => {
 // The "mapDispatch" calls the specific Thunk to dispatch its action. The "dispatch" is a function of Redux Store.
 const mapDispatch = (dispatch) => {
   return {
-    fetchAllCampuses: () => dispatch(fetchAllCampusesThunk()),
+    fetchAllCampuses: () =>{
+      dispatch(fetchAllCampusesThunk());
+    }
   };
 };
 
