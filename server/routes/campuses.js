@@ -51,6 +51,8 @@ router.delete('/:id', ash(async(req, res) => {
 
 /* ADD NEW CAMPUS */
 router.post('/', ash(async(req, res) => {
+  console.log("Uploading...")
+  console.log(req.body);
   let newCampus = await Campus.create(req.body);
   res.status(200).json(newCampus);  // Status code 200 OK - request succeeded
 }));
