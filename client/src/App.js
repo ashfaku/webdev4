@@ -10,7 +10,7 @@ import {
   AllCampusesContainer,
   AllStudentsContainer,
   NewStudentContainer,
-  NewCampusContainer
+  NewCampusContainer,
 } from './components/containers';
 
 // if you create separate components for adding/editing 

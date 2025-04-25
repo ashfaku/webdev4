@@ -6,7 +6,6 @@ It constructs a React component to display all campuses.
 ================================================== */
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import NewCampusView from "./NewCampusView.js";
 import CampusTile from "./CampusTile.js";
 
 const AllCampusesView = (props) => {
@@ -21,11 +20,12 @@ const AllCampusesView = (props) => {
       <h1>All Campuses</h1>
 
       {props.allCampuses.map((campus) => (
-        <CampusTile campus = {campus} />
+        <CampusTile key = {campus.id} campus = {campus} />
       ))}
       <br/>
-        <button>Add New Campus</button>
-          <NewCampusView />
+        <Link to="/newcampus">
+          <button>Add New Campus</button>
+        </Link>
       <br/><br/>
     </div>
   );

@@ -67,7 +67,7 @@ export const addCampusThunk = (campus) => async (dispatch) => {  // The THUNK
   try {
     // API "post" call to add "student" object's data to database
     let res = await axios.post(`/api/campuses`, campus);  
-    // Call Action Creator to return Action object (type + payload with new students data)
+    // Call Action Creator to return Action object (type + payload with new campuses data)
     // Then dispatch the Action object to Reducer to update state 
     dispatch(ac.addCampus(res.data));
     return res.data;
