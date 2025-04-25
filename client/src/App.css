@@ -54,3 +54,35 @@
   border-top: 2px solid #ccc;
   width: 80%;
 }
+.campusviewbox {
+  width: 50%;
+  margin-left: 25%;
+  background-color: white;
+}
+.campusviewbox img {
+  margin-top: 2.5%;
+}
+#editcampus, #deletecampus {
+  border-radius: 10px;
+  padding: 2%;
+  margin: 2%;
+  font-size: 20px;
+}
+#editcampus {
+  background-color: #D3D3D3;
+}
+#deletecampus {
+  background-color: #5E5E5E;
+  color: white;
+}
+#campusstudentlisttable {
+  margin-left: 10%;
+  margin-bottom: 10%;
+  width: 80%;
+}
+#campusstudentlisttable, #campusstudentlisttable th {
+  border:1px solid black;
+}
+.tablecell {
+  padding: 20px;
+}
