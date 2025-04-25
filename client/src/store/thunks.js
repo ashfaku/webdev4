@@ -63,6 +63,18 @@ export const addStudentThunk = (student) => async (dispatch) => {  // The THUNK
     console.error(err);
   }
 };
+export const addCampusThunk = (campus) => async (dispatch) => {  // The THUNK
+  try {
+    // API "post" call to add "student" object's data to database
+    let res = await axios.post(`/api/campuses`, campus);  
+    // Call Action Creator to return Action object (type + payload with new students data)
+    // Then dispatch the Action object to Reducer to update state 
+    dispatch(ac.addCampus(res.data));
+    return res.data;
+  } catch(err) {
+    console.error(err);
+  }
+};
 
 // Delete Student
 // THUNK CREATOR:

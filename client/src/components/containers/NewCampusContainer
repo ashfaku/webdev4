@@ -1,0 +1,99 @@
+
+// @ts-nocheck
+
+import { addCampusThunk } from '../../store/thunks';
+import { Component } from 'react';
+import { connect } from 'react-redux';
+
+
+class NewCampusContainer extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            name: "",
+            buildingnum: "",
+            street: "",
+            city: "",
+            usState: "",
+            zipcode: "",
+            description: "",
+        };
+    }
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
+    uploadToDatabase = async (name, address, description) => {
+        console.log("Uploading?");
+        try {
+            const response = await fetch("http://localhost:3001/api/campuses", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                name,
+                address,
+                description,
+                }),
+            });
+            const responseData = await response.json();
+            console.log("Response from backend:", responseData);
+        } 
+        catch (error) {
+            console.error("Error sending data:", error);
+        };
+    }
+    handleSubmit = async (event) => {
+        event.preventDefault();  // Prevent browser reload/refresh after submit.
+    
+        let campus = {
+            name: this.state.name,
+            buildingnum: this.state.buildingnum,
+            street: this.state.street,
+            city: this.state.city,
+            usState: this.state.usState,
+            zipcode: this.state.zipcode,
+            description: this.state.description
+        };
+        console.log(event.target);
+        const formData = new FormData(event.target);
+
+        const data = Object.fromEntries(formData.entries());
+        const address = data.buildingnum + " " + data.street + ", " + data.city + ", " + data.state + ", " + data.zipcode;
+        const description = data.description;
+        const name = data.name;
+        console.log(name, address, description);
+        this.uploadToDatabase(name, address, description);
+        let newCampus = await this.props.addCampus(campus);
+    
+        this.setState({
+            name: "",
+            buildingnum: "", 
+            street: "", 
+            city: "", 
+            USstate: "", 
+            zipcode: "",
+            description: ""
+        });
+    }
+    render() {
+        return (
+          <div>
+            <Header />
+            <NewCampusView handleChange = {this.handleChange} 
+              handleSubmit = {handleSubmit} 
+            />
+          </div>          
+        );
+    }
+}
+
+const mapDispatch = (dispatch) => {
+    return({
+        addCampus: (campus) => dispatch(addCampusThunk(campus)),
+    })
+}
+
+export default connect(null, mapDispatch)(NewCampusContainer);
