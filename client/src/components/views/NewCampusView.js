@@ -1,6 +1,6 @@
 import "../../App.css";
 
-const CampusSubmission = () => {
+const NewCampusView = () => {
 
     const uploadToDatabase = async (name, address, description) => {
         console.log("Uploading?");
@@ -55,4 +55,4 @@ const CampusSubmission = () => {
 }
 
 
-export default CampusSubmission;
+export default NewCampusView;
