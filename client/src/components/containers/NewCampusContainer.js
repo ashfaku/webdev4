@@ -3,9 +3,12 @@ import Header from './Header';
 
 import { addCampusThunk } from '../../store/thunks';
 import { connect } from 'react-redux';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 
 const NewCampusContainer = (props) => {
-
+    const [redirect, setRedirect] = useState(false);
+    const [redirectID, setRedirectID] = useState(null);
     const uploadToDatabase = async (name, address, description) => {
         console.log("Uploading?");
         try {
@@ -44,9 +47,15 @@ const NewCampusContainer = (props) => {
             address: address,
             description: description
         });
-        console.log("----------");
-        console.log(newCampus);
-        console.log("----------");
+        // console.log("----------");
+        // console.log(newCampus);
+        // console.log("----------");
+        setRedirectID(newCampus.id);
+        setRedirect(true);
+        
+    }
+    if (redirect) {
+        return <Redirect to={`/campus/${redirectID}`} />
     }
     return <div>
         <Header />

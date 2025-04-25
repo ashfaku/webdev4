@@ -15,7 +15,7 @@ const CampusView = (props) => {
   return (
     <div>
       <h1>{campus.name}</h1>
-      <div class = "campusviewbox">  
+      <div className = "campusviewbox">  
         <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" alt="College Campus" width="50%"></img>
 
         <p>Address: {campus.address}</p>
@@ -33,9 +33,9 @@ const CampusView = (props) => {
           {campus.students.map( student => {
             let name = student.firstname + " " + student.lastname;
             return (
-              <tr>
-                <th class = "tablecell">{name}</th>
-                <th class = "tablecell"><button>Unenroll</button></th>
+              <tr key = {student.id}>
+                <th className = "tablecell">{name}</th>
+                <th className = "tablecell"><button>Unenroll</button></th>
               </tr>
             );
           })}
