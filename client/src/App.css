@@ -86,3 +86,28 @@
 .tablecell {
   padding: 20px;
 }
+#homepagegrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10%;
+  justify-content: center;
+}
+#homepagegrid .box {
+    background-color: white;
+    width: 40%;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* soft shadow */
+    border-radius: 8px; /* rounded corners */
+}
+.homepagebutton {
+  color: white;
+  padding: 1.5%;
+  border-radius: 10px;
+  margin-top: 4%;
+  margin-bottom: 2%;
+  background-color: #3b3b3b;
+}
+.homepageimg {
+  width: 50%;
+  margin-bottom: 10%;
+}
