@@ -4,14 +4,41 @@ CampusView.js
 The Views component is responsible for rendering web page with data provided by the corresponding Container component.
 It constructs a React component to display a single campus and its students (if any).
 ================================================== */
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, Redirect } from "react-router-dom";
 import "../../App.css"
 
 // Take in props data to construct the component
 const CampusView = (props) => {
   const {campus} = props;
+  let [deleted, Delete] = useState(false);
+  const unenrollStudent = () => {
+    console.log("Unenrolling the kid...");
+    
+  }
+  const deleteCampus = async () => {
+    console.log("Attempting to delete");
+    try {
+      const response = await fetch(`http://localhost:3001/api/campuses/${campus.id}`, {
+        method: "DELETE",
+      });
   
-  // Render a single Campus view with list of its students
+      if (response.ok) {
+        console.log("Campus deleted successfully!");
+        Delete(true);
+      } 
+      else {
+        const error = await response.json();
+        console.error("Delete failed:", error);
+      }
+    } 
+    catch (err) {
+      console.error("Error deleting campus:", err);
+    }
+  };
+  if (deleted) {
+    return <Redirect to = {"/campuses"} />;
+  }
   return (
     <div>
       <h1>{campus.name}</h1>
@@ -22,7 +49,7 @@ const CampusView = (props) => {
         <p>Description: {campus.description}</p>
         <div>
           <button id = "editcampus">Edit Campus Information</button>
-          <button id = "deletecampus">Delete Campus</button>
+          <button id = "deletecampus" onClick={() => deleteCampus()}>Delete Campus</button>
         </div>
         <h2>Total Students: {campus.students.length}</h2>
         <table id = "campusstudentlisttable">
@@ -35,7 +62,7 @@ const CampusView = (props) => {
             return (
               <tr key = {student.id}>
                 <th className = "tablecell">{name}</th>
-                <th className = "tablecell"><button>Unenroll</button></th>
+                <th className = "tablecell"><button onClick={unenrollStudent}>Unenroll</button></th>
               </tr>
             );
           })}
