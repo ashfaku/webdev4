@@ -62,16 +62,16 @@
 .campusviewbox img {
   margin-top: 2.5%;
 }
-#editcampus, #deletecampus {
+#editcampus, #deletecampus, #editstudent, #deletestudent {
   border-radius: 10px;
   padding: 2%;
   margin: 2%;
   font-size: 20px;
 }
-#editcampus {
+#editcampus, #editstudent {
   background-color: #D3D3D3;
 }
-#deletecampus {
+#deletecampus, #deletestudent {
   background-color: #5E5E5E;
   color: white;
 }
@@ -86,7 +86,7 @@
 .tablecell {
   padding: 20px;
 }
-#homepagetitle {
+#homepagetitle, #studentviewtitle {
   color: #00008b;
 }
 #homepagegrid {
@@ -138,4 +138,19 @@
 
 #editcampusviewform div label {
   font-weight: bold;
+}
+#studentviewbody {
+  background-color: white;
+  width: 50%;
+  height: 80%;
+  margin-left: 25%;
+}
+#studentviewbody div{
+  margin: 2.5%;
+}
+#studentviewimg {
+  border-radius: 50%;
+  margin: 2.5%;
+  width: 20%;
+  height: 20%;
 }
