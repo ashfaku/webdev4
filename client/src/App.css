@@ -86,6 +86,9 @@
 .tablecell {
   padding: 20px;
 }
+#homepagetitle {
+  color: #00008b;
+}
 #homepagegrid {
   display: flex;
   flex-wrap: wrap;
@@ -96,10 +99,12 @@
     background-color: white;
     width: 40%;
     padding: 20px;
+    margin-top: 5%;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* soft shadow */
     border-radius: 8px; /* rounded corners */
 }
 .homepagebutton {
+  cursor: pointer;
   color: white;
   padding: 1.5%;
   border-radius: 10px;
@@ -110,4 +115,27 @@
 .homepageimg {
   width: 50%;
   margin-bottom: 10%;
+}
+
+#editcampusview {
+  background-color: white;
+  width: 50%;
+  margin-left: 25%;
+}
+#editcampusviewtitle {
+  padding: 2.5%;
+}
+#editcampusviewbody {
+  background-color: #D3D3D3; 
+}
+#editcampusviewform div {
+  margin: 3.5%;
+}
+
+#editcampusviewform div:first-child {
+  padding-top: 2.5%;
+}
+
+#editcampusviewform div label {
+  font-weight: bold;
 }

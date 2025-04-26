@@ -6,8 +6,16 @@ It constructs a React component to display the single student view page.
 ================================================== */
 const StudentView = (props) => {
   const { student } = props;
+  console.log("Student: ", student);
+  if (student.campus == null) {
+    return (
+      <div>
+        <h1>{student.firstname + " " + student.lastname}</h1>
+        <h3>Doesn't belong to a campus.</h3>
+      </div>
+    );
+  }
 
-  // Render a single Student view 
   return (
     <div>
       <h1>{student.firstname + " " + student.lastname}</h1>

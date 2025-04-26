@@ -16,7 +16,6 @@ class StudentContainer extends Component {
   componentDidMount() {
     //getting student ID from url
     this.props.fetchStudent(this.props.match.params.id);
-    console.log(this.state.student);
   }
 
   // Render Student view by passing student data as props to the corresponding View component

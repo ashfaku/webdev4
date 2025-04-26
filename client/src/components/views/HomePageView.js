@@ -10,8 +10,8 @@ import { Link } from 'react-router-dom';
 const HomePageView = () => {
   // Render Home page view
   return (
-    <div >
-      <h1>Home Page</h1>
+    <div>
+      <h1 id = "homepagetitle">Home Page</h1>
       <div id = "homepagegrid">
         <div className="box">
           View Campuses
