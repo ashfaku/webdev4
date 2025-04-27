@@ -44,10 +44,19 @@
   flex-direction: column;
   align-items: center;
 }
-.campustile div {
+.studenttile {
+  background-color: white;
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.campustile div, .studenttile div {
   margin-bottom: 2.5%;
 }
-.campustile hr {
+.campustile hr, .studenttile hr {
   margin-top: 30px;
   margin-bottom: 30px;
   border: none;
@@ -61,6 +70,10 @@
 }
 .campusviewbox img {
   margin-top: 2.5%;
+}
+.studenttile img {
+  border-radius: 50%;
+  width: 20%;
 }
 #editcampus, #deletecampus, #editstudent, #deletestudent, #enrollnewstudent, #editcampussubmit {
   border-radius: 10px;

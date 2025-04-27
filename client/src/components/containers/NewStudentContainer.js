@@ -47,8 +47,9 @@ class NewStudentContainer extends Component {
     let newStudent = await this.props.addStudent(student);
     console.log("HERE");
     console.log("Here?", newStudent);
-    if (newStudent === undefined) {
-      // WHAT DO I DO WHEN CAMPUS ID IS INVALID???
+    if (!newStudent || !newStudent.campusId) {
+      alert('Campus ID was invalid.');
+      return;
     }
     // Update state, and trigger redirect to show the new student
     this.setState({
