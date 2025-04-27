@@ -62,7 +62,7 @@
 .campusviewbox img {
   margin-top: 2.5%;
 }
-#editcampus, #deletecampus, #editstudent, #deletestudent, #enrollnewstudent {
+#editcampus, #deletecampus, #editstudent, #deletestudent, #enrollnewstudent, #editcampussubmit {
   border-radius: 10px;
   padding: 2%;
   margin: 2%;
@@ -71,7 +71,7 @@
 #editcampus, #editstudent, #enrollnewstudent {
   background-color: #D3D3D3;
 }
-#deletecampus, #deletestudent {
+#deletecampus, #deletestudent, #editcampussubmit {
   background-color: #5E5E5E;
   color: white;
 }
@@ -117,26 +117,26 @@
   margin-bottom: 10%;
 }
 
-#editcampusview {
+#editcampusview, #editstudentview{
   background-color: white;
   width: 50%;
   margin-left: 25%;
 }
-#editcampusviewtitle {
+#editcampusviewtitle, #editstudentviewtitle{
   padding: 2.5%;
 }
-#editcampusviewbody {
+#editcampusviewbody, #editstudentviewbody {
   background-color: #D3D3D3; 
 }
-#editcampusviewform div {
+#editcampusviewform div, #editstudentviewform div {
   margin: 3.5%;
 }
 
-#editcampusviewform div:first-child {
+#editcampusviewform div:first-child, #editstudentviewform div:first-child {
   padding-top: 2.5%;
 }
 
-#editcampusviewform div label {
+#editcampusviewform div label, #editstudentviewform div label {
   font-weight: bold;
 }
 #studentviewbody {
