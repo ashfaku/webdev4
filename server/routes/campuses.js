@@ -63,6 +63,7 @@ router.post('/', ash(async(req, res) => {
 
 /* EDIT CAMPUS */
 router.put('/:id', ash(async(req, res) => {
+  console.log(req.body);
   await Campus.update(req.body, {
     where: {
       id: req.params.id
@@ -70,7 +71,8 @@ router.put('/:id', ash(async(req, res) => {
   });
   // Find campus by Primary Key
   let campus = await Campus.findByPk(req.params.id, {include: [Student]});  // Get the campus and its associated students
-  res.status(201).json(campus);  // Status code 201 Created - successful creation of a resource
+  console.log("Campus", campus);
+  res.status(200).json(campus);  // Status code 201 Created - successful creation of a resource
 }))
 
 // Export router, so that it can be imported to construct the apiRouter (app.js)

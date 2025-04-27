@@ -7,7 +7,7 @@ const EditCampusView = (props) => {
     const { campus } = props;
 
     // Initialize state with empty strings to prevent uncontrolled input warning
-    const [collegeName, setCollegeName] = useState("");
+    const [name, setCollegeName] = useState("");
     const [imageURL, setImageURL] = useState("");
     const [address, setAddress] = useState("");
     const [description, setDescription] = useState("");
@@ -31,8 +31,8 @@ const EditCampusView = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log({ collegeName, imageURL, address, description });
-        console.log(await props.editCampus({ id, collegeName, address, description }));
+        console.log("Information", { name, imageURL, address, description });
+        console.log(await props.editCampus({ id, name, address, description }));
         
     };
 
@@ -45,7 +45,7 @@ const EditCampusView = (props) => {
                         <label>Name: </label>
                         <input
                             type="text"
-                            value={collegeName}
+                            value={name}
                             onChange={(e) => setCollegeName(e.target.value)}
                             placeholder="College Name..."
                         />
