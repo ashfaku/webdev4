@@ -2,6 +2,7 @@ import "../../App.css";
 import { editCampusThunk } from "../../store/thunks";
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
+import { Redirect } from "react-router-dom";
 
 const EditCampusView = (props) => {
     const { campus } = props;
@@ -12,6 +13,7 @@ const EditCampusView = (props) => {
     const [address, setAddress] = useState("");
     const [description, setDescription] = useState("");
     const [id, setID] = useState("");
+    let [edited, Edit] = useState(false);
 
     // If campus data is available, update state
     useEffect(() => {
@@ -33,9 +35,11 @@ const EditCampusView = (props) => {
         e.preventDefault();
         console.log("Information", { name, imageURL, address, description });
         console.log(await props.editCampus({ id, name, address, description }));
-        
+        Edit(true);
     };
-
+    if (edited) {
+        return <Redirect to = {`/campus/${campus.id}`} />;
+    }
     return (
         <div id="editcampusview">
             <h2 id="editcampusviewtitle">{campus.name}</h2>
@@ -78,9 +82,11 @@ const EditCampusView = (props) => {
                             id="campusdescriptionedit"
                         />
                     </div>
-                    <button id="editcampussubmit" type="submit">
-                        Submit
-                    </button>
+                    {/* <Link to={`/campus/${campus.id}`}> */}
+                        <button id="editcampussubmit" type="submit">
+                            Submit
+                        </button>
+                    {/* </Link> */}
                 </form>
             </div>
         </div>
