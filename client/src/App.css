@@ -62,13 +62,13 @@
 .campusviewbox img {
   margin-top: 2.5%;
 }
-#editcampus, #deletecampus, #editstudent, #deletestudent {
+#editcampus, #deletecampus, #editstudent, #deletestudent, #enrollnewstudent {
   border-radius: 10px;
   padding: 2%;
   margin: 2%;
   font-size: 20px;
 }
-#editcampus, #editstudent {
+#editcampus, #editstudent, #enrollnewstudent {
   background-color: #D3D3D3;
 }
 #deletecampus, #deletestudent {
@@ -77,7 +77,7 @@
 }
 #campusstudentlisttable {
   margin-left: 10%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   width: 80%;
 }
 #campusstudentlisttable, #campusstudentlisttable th {

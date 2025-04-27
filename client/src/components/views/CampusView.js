@@ -69,6 +69,7 @@ const CampusView = (props) => {
             );
           })}
         </table>
+        <button id = "enrollnewstudent">Enroll New Student</button>
       </div>
     </div>
   );
