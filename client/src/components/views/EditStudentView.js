@@ -26,7 +26,9 @@ const EditStudentView = (props) => {
     // Initialize state with empty strings to prevent uncontrolled input warning
     const [firstname, setFirstName] = useState("");
     const [lastname, setLastName] = useState("");
-    const [id, setID] = useState("");
+    const [studentID, setStudentID] = useState("");
+    const [campusID, setCampusID] = useState("");
+     
     let [edited, Edit] = useState(false);
 
     // If student data is available, update state
@@ -34,7 +36,8 @@ const EditStudentView = (props) => {
         if (student) {
             setFirstName(student.firstname || "");
             setLastName(student.lastname || "");
-            setID(student.id);
+            setStudentID(student.id);
+            setCampusID(student.campusId);
         }
     }, [student]); // Only run when student changes
 
@@ -45,8 +48,9 @@ const EditStudentView = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        let id = studentID, campusId = campusID;
         // console.log("Information", { name, imageURL, address, description });
-        console.log(await props.editstudent({ id, firstname, lastname }));
+        console.log(await props.editstudent({ id, firstname, lastname, campusId }));
         Edit(true);
     };
     if (edited) {
@@ -75,11 +79,18 @@ const EditStudentView = (props) => {
                             placeholder="Image Link..."
                         />
                     </div>
-                    {/* <Link to={`/student/${student.id}`}> */}
+                    <div>
+                        <label>Campus ID: </label>
+                        <input
+                            type="number"
+                            value={campusID}
+                            onChange={(e) => setCampusID(e.target.value)}
+                            placeholder="Campus ID..."
+                        />
+                    </div>
                         <button id="editstudentsubmit" type="submit">
                             Submit
                         </button>
-                    {/* </Link> */}
                 </form>
             </div>
         </div>

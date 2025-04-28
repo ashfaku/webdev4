@@ -44,10 +44,24 @@ router.get('/:id', ash(async(req, res) => {
 
 /* ADD NEW STUDENT */
 router.post('/', function(req, res, next) {
-  Student.create(req.body)
-    .then(createdStudent => res.status(200).json(createdStudent))
+  Campus.findByPk(req.body.campusId)
+    .then(campus => {
+      console.log("BODY: ", req.body);
+      console.log("CAMPUS: ", campus);
+
+      const studentData = { ...req.body }; // copy of req.body
+
+      if (!campus) {
+        delete studentData.campusId;
+      }
+
+      Student.create(studentData)
+        .then(createdStudent => res.status(200).json(createdStudent))
+        .catch(err => next(err));
+    })
     .catch(err => next(err));
 });
+
 
 /* DELETE STUDENT */
 router.delete('/:id', function(req, res, next) {
@@ -61,14 +75,17 @@ router.delete('/:id', function(req, res, next) {
 });
 
 /* EDIT STUDENT */
-router.put('/:id', ash(async(req, res) => {
-  await Student.update(req.body,
-        { where: {id: req.params.id} }
-  );
-  // Find student by Primary Key
-  let student = await Student.findByPk(req.params.id);
-  res.status(201).json(student);  // Status code 201 Created - successful creation of a resource
+router.put('/:id', ash(async (req, res) => {
+
+  const campus = await Campus.findByPk(req.body.campusId);
+  if (!campus) {
+    req.body.campusId = null;  
+  }
+  await Student.update(req.body, { where: { id: req.params.id } });
+  const student = await Student.findByPk(req.params.id);
+  res.status(200).json(student);  // 200 OK is better for update
 }));
+
 
 // Export router, so that it can be imported to construct the apiRouter (app.js)
 module.exports = router;

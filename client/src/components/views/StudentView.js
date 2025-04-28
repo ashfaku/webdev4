@@ -15,15 +15,6 @@ import {
 const StudentView = (props) => {
   const { student, deleteStudent } = props;
   console.log("Student: ", student);
-  if (student.campus == null) {
-    return (
-      <div>
-        <h1>{student.firstname + " " + student.lastname}</h1>
-        <h3>Doesn't belong to a campus.</h3>
-      </div>
-    );
-  }
-
   return (
     <div>
       <h1 id = "studentviewtitle">{student.firstname + " " + student.lastname}</h1>
@@ -34,8 +25,9 @@ const StudentView = (props) => {
         <div>Last Name: {student.lastname}</div>
         <div>Email: abc@gmail.com</div> 
         <div>GPA: 3.90</div>{/* what? Database doesn't have gpa or email fields */}
-        <div>Attends:</div>
-        <div><Link to={`/campus/${student.campus.id}`}>{student.campus.name}</Link></div>
+        {student.campus == null  ? <div></div> : <div>Attends: </div>}
+        {student.campus == null  ? <div>Doesn't belong to a campus.</div> : <div><Link to={`/campus/${student.campus.id}`}>{student.campus.name}</Link></div>}
+        {/* <div><Link to={`/campus/${student.campus.id}`}>{student.campus.name}</Link></div> */}
         <div>
           <Link to={`/editstudent/${student.id}`}>
             <button id = "editstudent">Edit Student Information</button>

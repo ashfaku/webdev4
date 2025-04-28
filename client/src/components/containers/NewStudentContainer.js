@@ -42,15 +42,20 @@ class NewStudentContainer extends Component {
         lastname: this.state.lastname,
         campusId: this.state.campusId
     };
-    
     // Add new student in back-end database
     let newStudent = await this.props.addStudent(student);
     console.log("HERE");
     console.log("Here?", newStudent);
-    if (!newStudent || !newStudent.campusId) {
-      alert('Campus ID was invalid.');
-      return;
-    }
+    // if (!newStudent || !newStudent.campusId) {
+    //   this.setState({
+    //     firstname: "", 
+    //     lastname: "", 
+    //     campusId: null, 
+    //     redirect: true, 
+    //     redirectId: null
+    //   });
+    //   return;
+    // }
     // Update state, and trigger redirect to show the new student
     this.setState({
       firstname: "", 
