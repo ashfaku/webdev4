@@ -40,12 +40,14 @@ const NewCampusContainer = (props) => {
         const address = data.buildingnum + " " + data.street + ", " + data.city + ", " + data.usState + ", " + data.zipcode;
         const description = data.description;
         const name = data.name;
-        console.log(name, address, description);
+        const image_url = data.image_url;
+        // console.log(name, address, description);
         // uploadToDatabase(name, address, description);
         let newCampus = await props.addCampus({
             name: name,
             address: address,
-            description: description
+            description: description,
+            image_url: image_url
         });
         // console.log("----------");
         // console.log(newCampus);

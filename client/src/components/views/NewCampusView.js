@@ -13,7 +13,8 @@ const NewCampusView = (props) => {
                 <input type="text" id="zipcode" name="zipcode" placeholder="Zip Code..." required />
             </div>
             <br />
-            <input type="text" id="description" name="description" placeholder="Description..." />
+            <input type="text" id="description" name="description" placeholder="Description..." required />
+            <input type="text" id="image_url" name="image_url" placeholder="Image URL..." required />
             <br />
             <button type="submit">Submit</button>
         </form>

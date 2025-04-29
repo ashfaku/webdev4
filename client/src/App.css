@@ -28,7 +28,7 @@
   border-radius: 10px;
   width: 14.75%;
 }
-#campussubmit #name, #campussubmit #description {
+#campussubmit #name, #campussubmit #description, #image_url{
   padding: 10px;
   border-radius: 10px;
   margin: 1%;
