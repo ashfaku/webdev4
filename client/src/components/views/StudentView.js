@@ -23,8 +23,9 @@ const StudentView = (props) => {
         <img alt = "collegepic" id = "studentviewimg" src = "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" />
         <div>First Name: {student.firstname}</div>
         <div>Last Name: {student.lastname}</div>
-        <div>Email: abc@gmail.com</div> 
-        <div>GPA: 3.90</div>{/* what? Database doesn't have gpa or email fields */}
+        <div>Email: {student.email}</div> 
+        <div>GPA: {student.gpa}</div>
+        <div> Image URL: {student.image_url}</div>
         {student.campus == null  ? <div></div> : <div>Attends: </div>}
         {student.campus == null  ? <div>Doesn't belong to a campus.</div> : <div><Link to={`/campus/${student.campus.id}`}>{student.campus.name}</Link></div>}
         {/* <div><Link to={`/campus/${student.campus.id}`}>{student.campus.name}</Link></div> */}

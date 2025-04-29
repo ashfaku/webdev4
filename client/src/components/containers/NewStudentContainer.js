@@ -21,6 +21,9 @@ class NewStudentContainer extends Component {
       firstname: "", 
       lastname: "", 
       campusId: null, 
+      email: "",
+      image_url: "",
+      gpa: 0.0,
       redirect: false, 
       redirectId: null
     };
@@ -40,12 +43,13 @@ class NewStudentContainer extends Component {
     let student = {
         firstname: this.state.firstname,
         lastname: this.state.lastname,
-        campusId: this.state.campusId
+        campusId: this.state.campusId,
+        email: this.state.email,
+        image_url: this.state.image_url,
+        gpa: this.state.gpa
     };
     // Add new student in back-end database
     let newStudent = await this.props.addStudent(student);
-    console.log("HERE");
-    console.log("Here?", newStudent);
     // if (!newStudent || !newStudent.campusId) {
     //   this.setState({
     //     firstname: "", 
@@ -61,6 +65,9 @@ class NewStudentContainer extends Component {
       firstname: "", 
       lastname: "", 
       campusId: null, 
+      email: "",
+      image_url: "",
+      gpa: 0.0,
       redirect: true, 
       redirectId: newStudent.id
     });
