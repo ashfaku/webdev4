@@ -55,21 +55,27 @@ const CampusView = (props) => {
           <button id = "deletecampus" onClick={() => deleteCampus()}>Delete Campus</button>
         </div>
         <h2>Total Students: {campus.students.length}</h2>
-        <table id = "campusstudentlisttable">
-          <tr>
-            <th>Student Name</th>
-            <th></th>
-          </tr>
-          {campus.students.map( student => {
-            let name = student.firstname + " " + student.lastname;
-            return (
-              <tr key = {student.id}>
-                <th className = "tablecell">{name}</th>
-                <th className = "tablecell"><button onClick={unenrollStudent}>Unenroll</button></th>
-              </tr>
-            );
-          })}
-        </table>
+        {campus.students.length == 0 ?
+          <div>There are no students.</div> 
+          : 
+          <div>
+            <table id = "campusstudentlisttable">
+            <tr>
+              <th>Student Name</th>
+              <th></th>
+            </tr>
+            {campus.students.map( student => {
+              let name = student.firstname + " " + student.lastname;
+              return (
+                <tr key = {student.id}>
+                  <th className = "tablecell">{name}</th>
+                  <th className = "tablecell"><button onClick={unenrollStudent}>Unenroll</button></th>
+                </tr>
+              );
+            })}
+            </table>
+          </div>
+        }
         <button id = "enrollnewstudent">Enroll New Student</button>
       </div>
     </div>
