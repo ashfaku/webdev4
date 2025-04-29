@@ -9,7 +9,7 @@ const EditCampusView = (props) => {
 
     // Initialize state with empty strings to prevent uncontrolled input warning
     const [name, setCollegeName] = useState("");
-    const [imageURL, setImageURL] = useState("");
+    const [image_url, setImageURL] = useState("");
     const [address, setAddress] = useState("");
     const [description, setDescription] = useState("");
     const [id, setID] = useState("");
@@ -18,10 +18,10 @@ const EditCampusView = (props) => {
     // If campus data is available, update state
     useEffect(() => {
         if (campus) {
-            setCollegeName(campus.name || "");
-            setImageURL(campus.imageURL || "dsifbdsfds.jpg");
-            setAddress(campus.address || "");
-            setDescription(campus.description || "");
+            setCollegeName(campus.name);
+            setImageURL(campus.image_url);
+            setAddress(campus.address);
+            setDescription(campus.description);
             setID(campus.id);
         }
     }, [campus]); // Only run when campus changes
@@ -33,8 +33,8 @@ const EditCampusView = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Information", { name, imageURL, address, description });
-        console.log(await props.editCampus({ id, name, address, description }));
+        console.log("Information", { name, image_url, address, description });
+        console.log(await props.editCampus({ id, name, address, description, image_url}));
         Edit(true);
     };
     if (edited) {
@@ -58,7 +58,7 @@ const EditCampusView = (props) => {
                         <label>Image URL: </label>
                         <input
                             type="text"
-                            value={imageURL}
+                            value={image_url}
                             onChange={(e) => setImageURL(e.target.value)}
                             placeholder="Image Link..."
                         />
