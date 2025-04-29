@@ -28,16 +28,22 @@ const EditStudentView = (props) => {
     const [lastname, setLastName] = useState("");
     const [studentID, setStudentID] = useState("");
     const [campusID, setCampusID] = useState("");
+    const [email, setEmail] = useState("");
+    const [image_url, setImageURL] = useState("");
+    const [gpa, setGPA] = useState(0.0);
      
     let [edited, Edit] = useState(false);
 
     // If student data is available, update state
     useEffect(() => {
         if (student) {
-            setFirstName(student.firstname || "");
-            setLastName(student.lastname || "");
+            setFirstName(student.firstname);
+            setLastName(student.lastname);
             setStudentID(student.id);
             setCampusID(student.campusId);
+            setEmail(student.email);
+            setImageURL(student.image_url);
+            setGPA(student.gpa);
         }
     }, [student]); // Only run when student changes
 
@@ -50,7 +56,7 @@ const EditStudentView = (props) => {
         e.preventDefault();
         let id = studentID, campusId = campusID;
         // console.log("Information", { name, imageURL, address, description });
-        console.log(await props.editstudent({ id, firstname, lastname, campusId }));
+        console.log(await props.editstudent({ id, firstname, lastname, campusId, email, image_url, gpa }));
         Edit(true);
     };
     if (edited) {
@@ -86,6 +92,33 @@ const EditStudentView = (props) => {
                             value={campusID}
                             onChange={(e) => setCampusID(e.target.value)}
                             placeholder="Campus ID..."
+                        />
+                    </div>
+                    <div>
+                        <label>Email Address: </label>
+                        <input
+                            type="text"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="EMail address..."
+                        />
+                    </div>
+                    <div>
+                        <label>Image URL: </label>
+                        <input
+                            type="text"
+                            value={image_url}
+                            onChange={(e) => setImageURL(e.target.value)}
+                            placeholder="Image URL..."
+                        />
+                    </div>
+                    <div>
+                        <label>GPA: </label>
+                        <input
+                            type="number"
+                            value={gpa}
+                            onChange={(e) => setGPA(e.target.value)}
+                            placeholder="GPA..."
                         />
                     </div>
                         <button id="editstudentsubmit" type="submit">
