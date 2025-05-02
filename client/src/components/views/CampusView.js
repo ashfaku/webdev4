@@ -26,6 +26,7 @@ const CampusView = (props) => {
     });
     await props.fetchcampus(campus.id); 
   }
+  //
   const deleteCampus = async () => {
     console.log("Attempting to delete");
     try {
