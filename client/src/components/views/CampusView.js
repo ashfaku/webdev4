@@ -6,15 +6,25 @@ It constructs a React component to display a single campus and its students (if 
 ================================================== */
 import { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
+import { editStudentThunk, fetchCampusThunk } from "../../store/thunks";
+import { connect } from 'react-redux';
 import "../../App.css"
 
 // Take in props data to construct the component
 const CampusView = (props) => {
   const {campus} = props;
   let [deleted, Delete] = useState(false);
-  const unenrollStudent = () => {
-    console.log("Unenrolling the kid...");
-    
+  const unenrollStudent = async (student) => {
+    await props.editstudent({
+      id: student.id,
+      firstname: student.firstname,
+      lastname: student.lastname,
+      campusId: null,
+      email: student.email,
+      image_url: student.image_url,
+      gpa: student.gpa
+    });
+    await props.fetchcampus(campus.id); 
   }
   const deleteCampus = async () => {
     console.log("Attempting to delete");
@@ -55,7 +65,7 @@ const CampusView = (props) => {
           <button id = "deletecampus" onClick={() => deleteCampus()}>Delete Campus</button>
         </div>
         <h2>Total Students: {campus.students.length}</h2>
-        {campus.students.length == 0 ?
+        {campus.students.length === 0 ?
           <div>There are no students.</div> 
           : 
           <div>
@@ -69,17 +79,26 @@ const CampusView = (props) => {
               return (
                 <tr key = {student.id}>
                   <th className = "tablecell">{name}</th>
-                  <th className = "tablecell"><button onClick={unenrollStudent}>Unenroll</button></th>
+                  <th className = "tablecell"><button onClick={() => unenrollStudent(student)}>Unenroll</button></th>
                 </tr>
               );
             })}
             </table>
           </div>
         }
-        <button id = "enrollnewstudent">Enroll New Student</button>
+        <Link to = {"/newstudent"} state={{ id: campus.id}}>
+         <button id = "enrollnewstudent">Enroll New Student</button>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default CampusView;
+const mapDispatch = (dispatch) => {
+  return {
+      editstudent: (student) => dispatch(editStudentThunk(student)),
+      fetchcampus: (id) => dispatch(fetchCampusThunk(id)),
+  };
+};
+
+export default connect(null, mapDispatch)(CampusView);
