@@ -157,6 +157,12 @@
   width: 50%;
   height: 80%;
   margin-left: 25%;
+  overflow-wrap: break-word; /* Break long words to avoid overflow */
+  word-wrap: break-word;
+  word-break: break-word;    /* Ensures even unbroken strings will wrap */
+  overflow-x: auto;          /* Adds horizontal scroll if absolutely needed */
+  padding: 1rem;
+  box-sizing: border-box;
 }
 #studentviewbody div{
   margin: 2.5%;

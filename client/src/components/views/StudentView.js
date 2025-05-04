@@ -20,7 +20,7 @@ const StudentView = (props) => {
       <h1 id = "studentviewtitle">{student.firstname + " " + student.lastname}</h1>
       {/* <h3>{student.campus.name}</h3> */}
       <div id = "studentviewbody">
-        <img alt = "collegepic" id = "studentviewimg" src = {student.image_url} />
+        <img id = "studentviewimg" src = {student.image_url} />
         <div>First Name: {student.firstname}</div>
         <div>Last Name: {student.lastname}</div>
         <div>Email: {student.email}</div> 

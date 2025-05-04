@@ -35,7 +35,7 @@ const seedDB = async () => {
 		lastname: "Smith",
 		gpa: 1.1,
 		email: "one@gmail.com",
-		image_url: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b"
+		image_url: "https://www.usnews.com/object/image/00000190-7475-d030-a1bb-f675280d0000/https-media-gettyimages-com-id-2063480448-photo-face-black-woman-and-college-student-on-computer-with-smile-for-research-study-and.jpg"
 	});
 	// Create a new student for a campus
 	const dummy_student2 = await Student.create({
@@ -43,7 +43,7 @@ const seedDB = async () => {
 		lastname: "Johnson",
 		gpa: 2.2,
 		email: "two@gmail.com",
-		image_url: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b"
+		image_url: "https://dims.apnews.com/dims4/default/a4ae11b/2147483647/strip/true/crop/3000x1999+0+0/resize/599x399!/quality/90/?url=https%3A%2F%2Fstorage.googleapis.com%2Fafs-prod%2Fmedia%2F6d05e9bd6a1d4e0582b6db3d6196756e%2F3000.jpeg"
 	});
 
 	// Add students to campuses

@@ -71,7 +71,7 @@ const NewStudentView = (props) => {
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Email Address: </label>
-            <input type="text" name="email" onChange={(e) => handleChange(e)} required />
+            <input type="email" name="email" onChange={(e) => handleChange(e)} required />
             <br/>
             <br/>
 
