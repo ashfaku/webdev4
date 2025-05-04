@@ -8,7 +8,7 @@ const StudentTile = (props) => {
             <h2>{student.firstname + " " + student.lastname}</h2>
         </Link>
         <div>Student ID: {student.id}</div>
-        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" alt="Students"></img>
+        <img src={student.image_url} alt="Students"></img>
         <hr></hr>
     </div>
 }

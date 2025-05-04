@@ -8,9 +8,7 @@ const CampusTile = (props) => {
             <h2>{campus.name}</h2>
         </Link>
         <div>Campus ID: {campus.id}</div>
-        {/* <p>{campus.address}</p>
-        <p>{campus.description}</p> */}
-        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" alt="College Campus" width="50%"></img>
+        <img src={campus.image_url} alt="College Campus" width="50%"></img>
         <hr></hr>
     </div>
 }

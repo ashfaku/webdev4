@@ -54,7 +54,7 @@ const CampusView = (props) => {
     <div>
       <h1>{campus.name}</h1>
       <div className = "campusviewbox">  
-        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" alt="College Campus" width="50%"></img>
+        <img src={campus.image_url} alt="College Campus" width="50%"></img>
 
         <p>Address: {campus.address}</p>
         <p>Description: {campus.description}</p>
