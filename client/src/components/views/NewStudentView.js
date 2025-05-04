@@ -76,7 +76,7 @@ const NewStudentView = (props) => {
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Image URL: </label>
-            <input type="text" step = "1" name="image_url" onChange={(e) => handleChange(e)} required />
+            <input type="url" step = "1" name="image_url" onChange={(e) => handleChange(e)} required />
             <br/>
             <br/>
 
