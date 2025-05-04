@@ -57,7 +57,7 @@ const EditCampusView = (props) => {
                     <div>
                         <label>Image URL: </label>
                         <input
-                            type="text"
+                            type="url"
                             value={image_url}
                             onChange={(e) => setImageURL(e.target.value)}
                             placeholder="Image Link..."
