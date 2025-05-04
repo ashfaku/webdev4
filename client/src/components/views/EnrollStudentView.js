@@ -66,8 +66,8 @@ const EnrollStudentView = (props) => {
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Campus Id: </label>
             <input type="number" disabled = {true} step = "1" value = {props.campusId} name="campusId"  style={{
-              backgroundColor: "#f0f0f0", // light grey
-              color: "#888",              // dark grey text
+              backgroundColor: "#f0f0f0",
+              color: "#888",             
               border: "1px solid #ccc"
               }} 
               required />
