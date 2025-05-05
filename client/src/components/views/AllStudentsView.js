@@ -33,7 +33,7 @@ const AllStudentsView = (props) => {
       )}
       <br/>
       <Link to={`/newstudent`}>
-        <button>Add New Student</button>
+        <button id = "addnewstudent">Add New Student</button>
       </Link>
       <br/><br/>
     </div>
