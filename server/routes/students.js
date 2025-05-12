@@ -49,9 +49,9 @@ router.post('/', function(req, res, next) {
       console.log("BODY: ", req.body);
       console.log("CAMPUS: ", campus);
 
-      const studentData = { ...req.body }; // copy of req.body
+      const studentData = { ...req.body }; 
 
-      if (!campus) {
+      if (!campus) { // checking if the inputted campus id didn't correlate to a campus id
         delete studentData.campusId;
       }
 

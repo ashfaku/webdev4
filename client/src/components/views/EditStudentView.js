@@ -56,6 +56,10 @@ const EditStudentView = (props) => {
         e.preventDefault();
         let id = studentID, campusId = campusID;
         // console.log("Information", { name, imageURL, address, description });
+        if (gpa < 0 || gpa > 4.0) {
+            alert("GPA must be within 0.0 to 4.0 scale! Please reenter");
+            return;
+        }
         console.log(await props.editstudent({ id, firstname, lastname, campusId, email, image_url, gpa }));
         Edit(true);
     };

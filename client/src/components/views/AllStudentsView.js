@@ -28,7 +28,7 @@ const AllStudentsView = (props) => {
 
       {students.map((student) => {
           return (
-            <StudentTile student={student}/> );
+            <StudentTile key = {student.id} student={student}/> );
         }
       )}
       <br/>

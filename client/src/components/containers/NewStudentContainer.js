@@ -39,7 +39,10 @@ class NewStudentContainer extends Component {
   // Take action after user click the submit button
   handleSubmit = async event => {
     event.preventDefault();  // Prevent browser reload/refresh after submit.
-
+    if (this.state.gpa < 0 || this.state.gpa > 4.0) {
+      alert("GPA is required to adhere to a 4.0 scale! Please reenter.");
+      return;
+    }
     let student = {
         firstname: this.state.firstname,
         lastname: this.state.lastname,

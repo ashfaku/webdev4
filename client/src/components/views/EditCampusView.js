@@ -33,7 +33,14 @@ const EditCampusView = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Information", { name, image_url, address, description });
+        if (name.length > 250) {
+            alert("College Name should not exceed 255 characters!");
+            return;
+        }
+        if (description.length > 250) {
+            alert("DEscription should not exceed 255 characters!");
+            return;
+        }
         console.log(await props.editCampus({ id, name, address, description, image_url}));
         Edit(true);
     };
