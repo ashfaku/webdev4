@@ -1,0 +1,175 @@
+.App {
+  background-color:  #ADD8E6;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.App-link {
+  color: #61dafb;
+}
+#campussubmit {
+  border-style: solid;
+  border-width: thin;
+  border-color: green;
+  width: 80%;
+  align-items: center;
+  margin-left: 10%;
+}
+#campussubmit button {
+  color: blue;
+  width: 90%;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+}
+#campussubmit div input {
+  padding: 10px;
+  margin: 1%;
+  border-radius: 10px;
+  width: 14.75%;
+}
+#campussubmit #name, #campussubmit #description, #image_url{
+  padding: 10px;
+  border-radius: 10px;
+  margin: 1%;
+  width: 90%;
+}
+.campustile {
+  background-color: white;
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 2%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.studenttile {
+  background-color: white;
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.campustile div, .studenttile div {
+  margin-bottom: 2.5%;
+}
+.campustile hr, .studenttile hr {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: none;
+  border-top: 2px solid #ccc;
+  width: 80%;
+}
+.campusviewbox {
+  width: 50%;
+  margin-left: 25%;
+  background-color: white;
+}
+.campusviewbox img {
+  margin-top: 2.5%;
+}
+.studenttile img {
+  border-radius: 50%;
+  width: 20%;
+}
+#editcampus, #deletecampus, #editstudent, #deletestudent, #enrollnewstudent, #editcampussubmit {
+  border-radius: 10px;
+  padding: 2%;
+  margin: 2%;
+  font-size: 20px;
+}
+#editcampus, #editstudent, #enrollnewstudent {
+  background-color: #D3D3D3;
+}
+#deletecampus, #deletestudent, #editcampussubmit {
+  background-color: #5E5E5E;
+  color: white;
+}
+#campusstudentlisttable {
+  margin-left: 10%;
+  margin-bottom: 5%;
+  width: 80%;
+}
+#campusstudentlisttable, #campusstudentlisttable th {
+  border:1px solid black;
+}
+.tablecell {
+  padding: 20px;
+}
+#homepagetitle, #studentviewtitle {
+  color: #00008b;
+}
+#homepagegrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10%;
+  justify-content: center;
+}
+#homepagegrid .box {
+    background-color: white;
+    width: 40%;
+    padding: 20px;
+    margin-top: 5%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* soft shadow */
+    border-radius: 8px; /* rounded corners */
+}
+.homepagebutton, #addnewstudent, #addnewcampus {
+  cursor: pointer;
+  color: white;
+  padding: 1.5%;
+  border-radius: 10px;
+  margin-top: 4%;
+  margin-bottom: 2%;
+  background-color: #3b3b3b;
+}
+.homepageimg {
+  width: 50%;
+  margin-bottom: 10%;
+}
+
+#editcampusview, #editstudentview{
+  background-color: white;
+  width: 50%;
+  margin-left: 25%;
+}
+#editcampusviewtitle, #editstudentviewtitle{
+  padding: 2.5%;
+}
+#editcampusviewbody, #editstudentviewbody {
+  background-color: #D3D3D3; 
+}
+#editcampusviewform div, #editstudentviewform div {
+  margin: 3.5%;
+}
+
+#editcampusviewform div:first-child, #editstudentviewform div:first-child {
+  padding-top: 2.5%;
+}
+
+#editcampusviewform div label, #editstudentviewform div label {
+  font-weight: bold;
+}
+#studentviewbody {
+  background-color: white;
+  width: 50%;
+  height: 80%;
+  margin-left: 25%;
+  overflow-wrap: break-word; /* Break long words to avoid overflow */
+  word-wrap: break-word;
+  word-break: break-word;    /* Ensures even unbroken strings will wrap */
+  overflow-x: auto;          /* Adds horizontal scroll if absolutely needed */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+#studentviewbody div{
+  margin: 2.5%;
+}
+#studentviewimg {
+  border-radius: 50%;
+  margin: 2.5%;
+  width: 20%;
+  height: 20%;
+}
