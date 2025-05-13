@@ -123,6 +123,7 @@ const EditStudentView = (props) => {
                             value={gpa}
                             onChange={(e) => setGPA(e.target.value)}
                             placeholder="GPA..."
+                            step = "any"
                         />
                     </div>
                         <button id="editstudentsubmit" type="submit">

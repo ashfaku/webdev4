@@ -56,7 +56,10 @@ const EnrollStudentContainer = (props) => {
   // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();  // Prevent page reload on submit
-    console.log("here?");
+    if (gpa < 0 || gpa > 4.0) {
+      alert("GPA is required to adhere to a 4.0 scale! Please reenter.");
+      return;
+    }
     const student = {
       firstname,
       lastname,
