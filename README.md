@@ -1,7 +1,7 @@
 Group Members 
 
-Ashfak Uddin 
+Ashfak Uddin, github username ashfaku
 
-Sofia Zevallos
+Sofia Zevallos, github username sofiazevallos
 
-Tony Wu
+Tony Wu, github username tonywuhoo
